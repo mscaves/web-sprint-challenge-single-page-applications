@@ -30,7 +30,7 @@ const App = () => {
         </Route>
         
         <Route path="/pizza">
-          <Form id="pizza-form" formValues={formValues} updateFormValues={updateFormValues}></Form>
+          <Form formValues={formValues} updateFormValues={updateFormValues}></Form>
         </Route>
       </Switch>
     </>
