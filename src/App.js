@@ -1,11 +1,16 @@
 import React from "react";
 import { useState } from "react";
 import { Switch, Route } from 'react-router-dom';
+import Home from './components/Home'
+import Form from './components/Form'
 
 const defaultFormValues = {
   name:'',
   size:'',
-  toppings: '',
+  pepperoni: '',
+  sausage:'',
+  sauerkraut:'',
+  pineapple: 'Aw Hell No',
   specialInstructions: ''
 };
 
@@ -19,12 +24,15 @@ const App = () => {
     <>
       <h1>Lambda Eats</h1>
       <p>Join our membership program to spend even more money and earn extra pounds!</p>
-      <Route exact path="/">
-        <Home></Home>
-      </Route>
-      <Route path="/pizza">
-        <Form id="pizza-form"></Form>
-      </Route>
+      <Switch>
+        <Route exact path="/">
+          <Home></Home>
+        </Route>
+        
+        <Route path="/pizza">
+          <Form id="pizza-form" formValues={formValues} updateFormValues={updateFormValues}></Form>
+        </Route>
+      </Switch>
     </>
   );
 };
